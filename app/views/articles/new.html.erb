@@ -1,0 +1,19 @@
+<div>
+    <h1>New Article Form</h1>
+
+    <%= form_with model: @article do |form| %>
+            <div>
+                <%= form.label :title %>
+                <%= form.text_field :title %>
+            </div>
+
+            <div>
+                <%= form.label :body %>
+                <%= form.text_field :body %>
+            </div>
+
+            <div class="rounded-full border-2 p-2 font-bold border-black">
+                <%= form.submit %>
+            </div>
+    <% end %>
+</div>

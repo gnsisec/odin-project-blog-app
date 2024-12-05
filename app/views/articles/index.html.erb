@@ -1,3 +1,11 @@
 <div>
     <h1>Index Article</h1>
+    <ul>
+        <% @articles.each do |article| %>
+            <li class="border-2 border-lime-400 p-2 rounded m-2">
+                <p><%= article.title %></p>
+                <p><%= article.body %></p>
+            </li>
+        <% end %>
+    </ul>
 </div>
