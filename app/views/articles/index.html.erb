@@ -2,10 +2,13 @@
     <h1>Index Article</h1>
     <ul>
         <% @articles.each do |article| %>
-            <li class="border-2 border-lime-400 p-2 rounded m-2">
-                <p><%= article.title %></p>
-                <p><%= article.body %></p>
-            </li>
+            <%= link_to article do %>
+                <li class="border-2 border-lime-400 rounded m-2">
+                    <h3 class="p-2 text-blue-700 text-xl font-bold hover:bg-slate-200">
+                        <%= article.title.capitalize() %>
+                    </h3>
+                </li>
+            <% end %>
         <% end %>
     </ul>
 </div>
