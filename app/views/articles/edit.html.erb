@@ -1,0 +1,25 @@
+<div>
+    <h1>Edit Article</h1>
+
+    <%= form_with model: @article do |form| %>
+            <div>
+                <%= form.label :title %>
+                <%= form.text_field :title %>
+                <% @article.errors.full_messages_for(:title).each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </div>
+
+            <div>
+                <%= form.label :body %>
+                <%= form.text_field :body %>
+                <% @article.errors.full_messages_for(:body).each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </div>
+
+            <div class="rounded-full border-2 p-2 font-bold border-black">
+                <%= form.submit %>
+            </div>
+    <% end %>
+</div>
