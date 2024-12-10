@@ -3,7 +3,39 @@
     <p><strong>Title:</strong> <%= @article.title %></p>
     <p><strong>Body:</strong><%= @article.body %></p>
 
-    <div id="footer" class="flex-col bg-slate-300">
+    <div class="bg-slate-400">
+        <h2 class="text-lg font-bold">Comments</h2>
+        <% @article.comments.each do |comment| %>
+            <div>
+                <p>
+                    user: <%= comment.user %>
+                </p>
+                <p>
+                    comment: <%= comment.item %>
+                </p>
+                <hr class="border-y-black">
+            </div>
+        <% end %>
+    </div>
+
+    <div class="bg-slate-300">
+        <h2 class="text-lg font-bold">Add Comment</h2>
+        <%= form_with model: [@article, @article.comments.build] do |form| %>
+            <div>
+                <%= form.label :user %><br>
+                <%= form.text_field :user %>
+            </div>
+
+            <div>
+                <%= form.label :item %><br>
+                <%= form.textarea :item %>
+            </div>
+
+            <%= form.submit 'Add Comment' , class: 'p-2 bg-sky-500 hover:bg-sky-700 rounded-lg cursor-pointer'%>
+        <% end %>
+    </div>
+
+    <div id="footer" class="flex-col bg-slate-200">
         <div><%= link_to "Edit", edit_article_path(@article) %></div>
         <div><%= link_to "Delete", article_path(@article), data:{
             turbo_method: :delete,
