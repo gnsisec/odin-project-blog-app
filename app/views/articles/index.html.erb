@@ -1,14 +1,5 @@
 <div id="index" class="">
-    <section id="nav-header" class="flex items-center text-neutral-600">
-        <h1 class="text-5xl flex-auto basis-4/6">Rails Blog</h1>
-        <nav class="flex-auto basis-2/6">
-            <ul class="flex flex-row">
-                <li class="text-xl basis-1/3 text-center"><strong>Home</strong></li>
-                <li class="text-xl basis-1/3 text-center">About</li>
-                <li class="text-xl basis-1/3 text-center">Articles</li>
-            </ul>
-        </nav>
-    </section>
+    <%= render "shared/header" %>
 
     <section class="my-12 flex flex-row-reverse">
         <%= link_to "+ Add Post", new_article_path, class:"bg-red-800 text-white py-2 px-4 border-solid rounded-full" %>
