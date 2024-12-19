@@ -1,14 +1,40 @@
-<div>
-    <h1>Index Article</h1>
-    <ul>
-        <% @articles.each do |article| %>
-            <%= link_to article do %>
-                <li class="border-2 border-lime-400 rounded m-2">
-                    <h3 class="p-2 text-blue-700 text-xl font-bold hover:bg-slate-200">
-                        <%= article.title.capitalize() %>
-                    </h3>
+<div id="index" class="">
+    <section id="nav-header" class="flex items-center text-neutral-600">
+        <h1 class="text-5xl flex-auto basis-4/6">Rails Blog</h1>
+        <nav class="flex-auto basis-2/6">
+            <ul class="flex flex-row">
+                <li class="text-xl basis-1/3 text-center"><strong>Home</strong></li>
+                <li class="text-xl basis-1/3 text-center">About</li>
+                <li class="text-xl basis-1/3 text-center">Articles</li>
+            </ul>
+        </nav>
+    </section>
+
+    <section class="my-12 flex flex-row-reverse">
+        <%= link_to "+ Add Post", new_article_path, class:"bg-red-800 text-white py-2 px-4 border-solid rounded-full" %>
+    </section>
+
+    <section>
+        <ul>
+            <% @articles.each do |article| %>
+                <li class="m-4 flex">
+                    <p class="text-neutral-600 basis-1/4"> <%= (article.created_at.strftime("%B %d, %Y")) %> </p>
+                    <%= link_to article, class:"basis-3/4" do %>
+                        <h3 class="text-xl hover:bg-slate-200 text-red-800 font-semibold">
+                            <%= article.title.capitalize() %>
+                        </h3>
+                    <% end %>
                 </li>
+                <hr>
             <% end %>
-        <% end %>
-    </ul>
+        </ul>
+    </section>
+
+    <section>
+        <div class="mt-10 flex flex-row justify-around">
+            <%= link_to "See more posts...", articles_path,
+            class: "bg-red-800 text-white py-2 px-4 border-solid rounded-full text-center" %>
+        </div>
+    </section>
+
 </div>
