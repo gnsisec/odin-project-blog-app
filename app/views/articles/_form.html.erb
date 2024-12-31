@@ -1,21 +1,19 @@
-<%= form_with model: item do |form| %>
+<%= form_with(model: item, class: "flex flex-col") do |form| %>
         <div>
-            <%= form.label :title %>
-            <%= form.text_field :title %>
+            <%= form.text_field :title, placeholder: "Title", class: "border-2 rounded-lg w-full" %>
             <% item.errors.full_messages_for(:title).each do |message| %>
                 <div><%= message %></div>
             <% end %>
         </div>
 
-        <div>
-            <%= form.label :body %>
-            <%= form.textarea :body %>
+        <div class="pt-2">
+            <%= form.textarea :body, placeholder: "Description", class: "border-2 rounded-lg w-full h-32" %>
             <% item.errors.full_messages_for(:body).each do |message| %>
                 <div><%= message %></div>
             <% end %>
         </div>
 
-        <div class="rounded-full border-2 p-2 font-bold border-black">
+        <div class="rounded-full border-2 p-2 bg-red-800 text-white text-center">
             <%= form.submit %>
         </div>
 <% end %>
